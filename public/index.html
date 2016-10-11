@@ -1,0 +1,65 @@
+<!doctype html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" dir="ltr">
+
+  <head>
+    <meta http-equiv="content-type" content="application/xhtml+xml; charset=UTF-8" />
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+    <script src="/assets/js/app.js"></script>
+    <script src="/assets/js/external/handlebars-1.0.rc.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="/assets/css/app.css">
+
+    <title>Movie Finder</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row">
+        <a href="/#/favorites" class="nav-btn pull-right">Favorites</a>
+        <a href="/" class="nav-btn pull-right">Dashboard</a>
+      </div>
+      <div class="row">
+        <div id="leftColumn" class="col-sm-6">
+        <h1  id="headerTitle" class='col-sm-12'>Search Movies Below</h1>
+          <div class='row'>
+            <div class="movie-search-form col-sm-12">
+              <input id="movieSearchBox" type="text" name="query" placeholder="The Hangover"/>
+              <button id="searchButton" onclick="searchMovies()" class="btn btn-primary">Search Movies</button>
+            </div>
+            <div id='movieList' class='col-sm-12 list-group'>
+            </div>
+          </div>
+        </div>
+      <div class="row">
+        <div id="rightColumn" class="col-sm-6">
+        </div>
+
+        <!-- I'm using a template for the movie detail DOM.  This is a commonly used template libary name Handlebars.js -->
+        <script id="movieDetails" type="text/x-handlebars-template">
+            <div class='movie-header-container col-sm-12'>
+              <img id="posterImg" class="movie-poster" src={{ posterUrl }}/>
+              <h2 class="movie-name"> {{ title }} - {{ year }} </h2>
+              <button onclick="favoriteClicked('{{ title }}', '{{ imdbID }}')" class="btn btn-primary">Favorite</button>
+            </div>
+            <div class="info-label col-sm-12">
+              Raiting - {{ rating }}
+            </div>
+            <div class="info-label col-sm-12">
+              Genre - {{ genre }}
+            </div>
+            <div class="info-label col-sm-12">
+              Cast - {{ cast }}
+            </div>
+            <div class="info-label col-sm-12">
+              IMDB Rating - {{ imdbRating }}
+            </div>
+            <div id="plotContainer" class="info-label col-sm-12">
+              <h3>Plot</h3>
+              <div id="plot" class="info-label col-sm-12">
+                {{ plot }}
+              </div>
+            </div>
+          </script>
+      </div>
+    </div>
+  </body>
+</html>
