@@ -82,7 +82,7 @@ function searchMovies() {
 //The below "fetch" methods handle interacting with API endpoints to retrieve data needed by the app.
 function fetchMovies(searchString) {
   //Use JSON fetcher method to load in movies that match the string the user input
-  var searchUrl = "http://www.omdbapi.com/?s=" + searchString
+  var searchUrl = "https://www.omdbapi.com/?s=" + searchString
 
   fetchJSON(searchUrl, null, function(moviesData, error) {
     if (!!error) {
@@ -94,7 +94,7 @@ function fetchMovies(searchString) {
 }
 
 function fetchMovie(movieId) {
-  var movieUrl = "http://www.omdbapi.com/?i=" + movieId
+  var movieUrl = "https://www.omdbapi.com/?i=" + movieId
 
   fetchJSON(movieUrl, null, function(movieData, error) {
     if (!!error) {
